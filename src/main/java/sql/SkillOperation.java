@@ -1,5 +1,6 @@
 package sql;
 
+import lombok.SneakyThrows;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -13,6 +14,7 @@ public class SkillOperation {
     private static final String INSERT = "INSERT INTO developers(industry, level) VALUES(?, ?)";
     private static final String UPDATE = "UPDATE developers SET industry = ?, level = ? WHERE id = ?";
     private static final String DELETE = "DELETE FROM skills WHERE id = ?";
+    private Connection connection;
 
     public Skill selectById(int id) throws SQLException {
         ResultSet resultSet = null;
@@ -106,5 +108,10 @@ public class SkillOperation {
         return new Skill(resultSet.getInt("id"),
                 resultSet.getString("industry"),
                 resultSet.getString("level"));
+    }
+
+    @SneakyThrows
+    public void closeConnection() {
+        connection.close();
     }
 }
