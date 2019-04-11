@@ -30,6 +30,7 @@ public class SkillOperation {
             LOGGER.error(e.getMessage());
         } finally {
             resultSet.close();
+            closeConnection();
         }
         return null;
     }
@@ -49,6 +50,7 @@ public class SkillOperation {
             LOGGER.error(e.getMessage());
         } finally {
             resultSet.close();
+            closeConnection();
         }
         return null;
     }
@@ -66,6 +68,7 @@ public class SkillOperation {
             LOGGER.error(e.getMessage());
         } finally {
             preparedStatement.close();
+            closeConnection();
         }
     }
 
@@ -83,6 +86,7 @@ public class SkillOperation {
             LOGGER.error(e.getMessage());
         } finally {
             preparedStatement.close();
+            closeConnection();
         }
     }
 
@@ -101,6 +105,7 @@ public class SkillOperation {
             LOGGER.error(e.getMessage());
         } finally {
             preparedStatement.close();
+            closeConnection();
         }
     }
 

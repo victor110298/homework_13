@@ -34,6 +34,7 @@ public class DeveloperOperation {
             LOGGER.error(e.getMessage());
         } finally {
             resultSet.close();
+            closeConnection();
         }
         return null;
     }
@@ -53,6 +54,7 @@ public class DeveloperOperation {
             LOGGER.error(e.getMessage());
         } finally {
             resultSet.close();
+            closeConnection();
         }
         return null;
     }
@@ -70,6 +72,7 @@ public class DeveloperOperation {
             LOGGER.error(e.getMessage());
         } finally {
             preparedStatement.close();
+            closeConnection();
         }
     }
 
@@ -89,6 +92,8 @@ public class DeveloperOperation {
             LOGGER.error(e.getMessage());
         } finally {
             preparedStatement.close();
+            closeConnection();
+
         }
     }
 
@@ -109,6 +114,7 @@ public class DeveloperOperation {
             LOGGER.error(e.getMessage());
         } finally {
             preparedStatement.close();
+            closeConnection();
         }
     }
 
@@ -145,6 +151,7 @@ public class DeveloperOperation {
             LOGGER.error(e.getMessage());
         } finally {
             resultSet.close();
+            closeConnection();
         }
         return 0;
     }
@@ -172,6 +179,7 @@ public class DeveloperOperation {
             LOGGER.error(e.getMessage());
         } finally {
             resultSet.close();
+            closeConnection();
         }
         return null;
     }

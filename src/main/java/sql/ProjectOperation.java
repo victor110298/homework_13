@@ -30,6 +30,7 @@ public class ProjectOperation {
             LOGGER.error(e.getMessage());
         } finally {
             resultSet.close();
+            closeConnection();
         }
         return null;
     }
@@ -49,6 +50,7 @@ public class ProjectOperation {
             LOGGER.error(e.getMessage());
         } finally {
             resultSet.close();
+            closeConnection();
         }
         return null;
     }
@@ -66,6 +68,7 @@ public class ProjectOperation {
             LOGGER.error(e.getMessage());
         } finally {
             preparedStatement.close();
+            closeConnection();
         }
     }
 
@@ -84,6 +87,7 @@ public class ProjectOperation {
             LOGGER.error(e.getMessage());
         } finally {
             preparedStatement.close();
+            closeConnection();
         }
     }
 
@@ -103,6 +107,7 @@ public class ProjectOperation {
             LOGGER.error(e.getMessage());
         } finally {
             preparedStatement.close();
+            closeConnection();
         }
     }
 
