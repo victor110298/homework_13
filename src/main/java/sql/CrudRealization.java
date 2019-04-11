@@ -72,25 +72,20 @@ public class CrudRealization {
         resultSet.close();
     }
 
-    public void update(String tableName, String column, String newValue, String condition) {
+    public void update(String tableName, String column, String newValue, String condition) throws SQLException {
         String query = "UPDATE " + tableName + " SET " + column + " = " + newValue + " WHERE " + condition;
-
-        try (Connection connection = Connector.getConnection();
-             Statement statement = connection.createStatement()) {
-            statement.executeUpdate(query);
-        } catch (SQLException e) {
-            LOGGER.error("SQLException: " + e);
-        }
+        Connection cn = CrudRealization.getConnection(query);
     }
 
-    public void delete(String tableName, String condition) {
+    public void delete(String tableName, String condition) throws SQLException {
         String query = "DELETE FROM " + tableName + " WHERE " + condition;
+        Connection cn = CrudRealization.getConnection(query);
+    }
 
-        try (Connection connection = Connector.getConnection();
-             Statement statement = connection.createStatement()) {
-            statement.executeUpdate(query);
-        } catch (SQLException e) {
-            LOGGER.error("SQLException: " + e);
-        }
+    public static Connection getConnection(String query) throws SQLException {
+        Connection connection = Connector.getConnection();
+    Statement statement = connection.createStatement();
+        statement.executeUpdate(query);
+        return getConnection(query);
     }
 }

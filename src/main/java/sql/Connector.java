@@ -9,7 +9,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class Connector {
+public final class Connector {
+    private Connector() {
+    }
+
     private static final Logger LOGGER = Logger.getLogger(Connector.class);
 
     public static Connection getConnection() {
